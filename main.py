@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 from sys import argv
-
+from os import environ
 
 def main ():
-    target="world" if len(argv) == 1 else " ".join(argv[1:])
+    target = environ.get("TARGET", "world")
+    if len(argv) > 1:
+        target = " ".join(argv[1:])
         
     print(f"hello, {target}!")
     
